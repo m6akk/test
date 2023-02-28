@@ -13,7 +13,6 @@ for i in range(len(heightmap)):
     for j in range(len(heightmap[0])):
         current_height = heightmap[i][j]
         is_low_point = True
-        
         # check if current location is lower than all adjacent locations
         if i > 0 and current_height >= heightmap[i-1][j]:
             is_low_point = False
@@ -23,13 +22,12 @@ for i in range(len(heightmap)):
             is_low_point = False
         if j < len(heightmap[0])-1 and current_height >= heightmap[i][j+1]:
             is_low_point = False
-            
         # add risk level to sum if location is a low point
         if is_low_point:
             risk_level = current_height + 1
             risk_level_sum += risk_level
             low_points.append((i,j,risk_level))
 
-# print low points and risk level sum
+print low points and risk level sum
 print("Low points:", low_points)
 print("Risk level sum:", risk_level_sum)
